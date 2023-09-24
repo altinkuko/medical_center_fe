@@ -27,3 +27,29 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Add Bootstrap
+
+
+Install ngx-bootstrap and bootstrap:
+
+npm install ngx-bootstrap bootstrap --save
+
+This line installs Bootstrap 3 nowadays, but can install Bootstrap 4 in the future. Keep in mind ngx-bootstrap supports both versions.
+
+    Open src/app/app.module.ts and add:
+
+    import { AlertModule } from 'ngx-bootstrap';
+    ...
+    @NgModule({
+    ...
+    imports: [AlertModule.forRoot(), ... ],
+    ... 
+    })
+
+    Open angular-cli.json (for angular6 and later file name changed to angular.json ) and insert a new entry into the styles array:
+
+    "styles": [
+    "styles.css",
+    "node_modules/bootstrap/dist/css/bootstrap.min.css"
+    ],
