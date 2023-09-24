@@ -1,0 +1,26 @@
+<div class="container mt-5">
+  <div class="row col-1">
+    <button class="btn btn-success" (click)="createDoctor()">Create</button>
+  </div>
+  <div class="row">
+    <table class="table table-responsive table-striped">
+      <thead>
+      <tr>
+        <th>Doctor Name</th>
+        <th>Specialization</th>
+        <th>Username</th>
+        <th>Details</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let doctor of doctors">
+        <td>{{doctor.name}}</td>
+        <td>{{doctor.specialization}}</td>
+        <td>{{doctor.username}}</td>
+        <td><button class="btn btn-info" (click)="openDetails(doctor.doctorId)">Details</button></td>
+        <td><button class="btn btn-danger" (click)="deleteDoctor(doctor.doctorId)">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

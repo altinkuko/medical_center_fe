@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <form [formGroup]="formGroup" (submit)="onUpdate()">
+    <div class="input-group mt-3 mb-3">
+      <div class="input-group-lg">
+        <label class="input-group-text" for="name">Doctor Name</label>
+      </div>
+      <input type="text" class="form-control" id="name" name="name" formControlName="name">
+    </div>
+    <span *ngIf="this.formGroup.get('name').hasError('required')" class="text-danger">Name is required</span>
+    <div class="input-group mt-3 mb-3">
+      <div class="input-group-lg">
+        <label class="input-group-text" for="username">Doctor Username</label>
+      </div>
+      <input type="text" class="form-control" id="username" name="username" formControlName="username">
+    </div>
+    <span *ngIf="this.formGroup.get('username').hasError('required')" class="text-danger">Username is required</span>
+    <div class="input-group mt-3 mb-3">
+      <div class="input-group-lg">
+        <label class="input-group-text" for="specialization">Doctor Specialization</label>
+      </div>
+      <input type="text" class="form-control" id="specialization" name="specialization" formControlName="specialization">
+    </div>
+    <span *ngIf="this.formGroup.get('specialization').hasError('required')" class="text-danger">Specialization is required</span>
+    <div class="input-group mt-3 mb-3">
+      <button class="btn btn-success" [disabled]="formGroup.invalid" type="submit">Update</button>
+    </div>
+  </form>
+</div>
