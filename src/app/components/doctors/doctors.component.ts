@@ -23,7 +23,6 @@ export class DoctorsComponent implements OnInit{
     this.doctorService.getAllDoctors().subscribe(
       (res: any) => {
         this.doctors = res;
-        console.log(this.doctors);
       },
       (error) => alert(error.error)
     );
@@ -44,7 +43,6 @@ export class DoctorsComponent implements OnInit{
         this.getDoctors();
       },
       error: (err)=> {
-        console.log(err);
         alert(err.error);
       }
     })
