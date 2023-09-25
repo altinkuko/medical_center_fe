@@ -8,16 +8,18 @@ import {
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class ExampleInterceptorInterceptor implements HttpInterceptor {
+export class CustomHttpInterceptorInterceptor implements HttpInterceptor {
 
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const req = request.clone({
-      headers: new HttpHeaders({
-        'Authorization': 'test'
+    if (sessionStorage.getItem('auth')) {
+      let req = request.clone({
+        headers: new HttpHeaders().set('Authorization', sessionStorage.getItem("auth"))
       })
-    })
-    return next.handle(req);
+      return next.handle(req);
+    } else {
+      return next.handle(request);
+    }
   }
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DoctorService} from "../../services/doctor.service";
 import {Doctor} from "../../data/doctor";
 import {Router} from "@angular/router";
+import {Messages} from "../../static-data/messages";
 
 @Component({
   selector: 'app-doctors',
@@ -24,7 +25,13 @@ export class DoctorsComponent implements OnInit{
       (res: any) => {
         this.doctors = res;
       },
-      (error) => alert(error.error)
+      (error) => {
+        if (typeof error.error == 'string' || error.error instanceof String){
+          alert(error.error);
+        } else {
+          alert(Messages.WRONG)
+        }
+      }
     );
   }
 

@@ -1,0 +1,14 @@
+<div class="container text-center mt-5">
+<form class="form-signin" (submit)="onLogin()">
+  <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input type="text" id="inputEmail" class="form-control" placeholder="Username" required="required" autofocus="" [(ngModel)]="username" [ngModelOptions]="{ standalone: true }">
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input type="password" id="inputPassword" class="form-control mt-2" placeholder="Password" required="required" [(ngModel)]="password" [ngModelOptions]="{ standalone: true }">
+  <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Sign in</button>
+  <div class="text-center mt-5">
+    Don`t have an account? <a routerLink="/register">Sign Up</a> here.
+  </div>
+</form>
+</div>

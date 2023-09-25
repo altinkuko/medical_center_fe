@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Doctor} from "../data/doctor";
 
 @Injectable({
@@ -10,7 +10,7 @@ export class DoctorService {
   constructor(private http: HttpClient) { }
   private BASEURL = 'http://localhost:8080'
   getAllDoctors(){
-    return this.http.get(this.BASEURL + '/doctor/all');
+    return this.http.get(this.BASEURL + `/doctor/all`);
   }
   getDoctorById(id:number){
     return this.http.get(this.BASEURL + `/doctor/`+id);
