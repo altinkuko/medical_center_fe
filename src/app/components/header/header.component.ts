@@ -13,4 +13,11 @@ export class HeaderComponent {
   goLogin() {
     this.router.navigate(['/login']);
   }
+  logout(){
+    sessionStorage.clear();
+    this.router.navigate(['']);
+  }
+  isLoggedIn(){
+    return sessionStorage.getItem('auth') != null;
+  }
 }

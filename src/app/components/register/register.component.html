@@ -5,30 +5,29 @@
         <div class="auth-avatar">
           <img src="https://pluspng.com/img-png/user-png-icon-account-avatar-human-male-man-men-people-person-download-svg-download-png-edit-icon-512.png" alt="user" class="user-image">
         </div>
-        <form >
+        <form [formGroup]="form" (submit)="register()">
           <div class="form-group">
             <label for="name">Name : </label>
-            <input type="text" name="name" class="form-control" placeholder="Name">
+            <input type="text" name="name" class="form-control" placeholder="Name" formControlName="name">
           </div>
           <div class="form-group">
             <label for="username">Username : </label>
-            <input type="text" name="username" class="form-control" placeholder="Username">
+            <input type="text" name="username" class="form-control" placeholder="Username" formControlName="username">
           </div>
           <div class="form-group">
             <label for="email">Email : </label>
-            <input type="text" name="email" class="form-control" placeholder="Email">
+            <input type="text" name="email" class="form-control" placeholder="Email" formControlName="email">
           </div>
           <div class="form-group">
             <label for="password">Password : </label>
-            <input type="password" name="password" class="form-control" placeholder="********">
+            <input type="password" name="password" class="form-control" placeholder="Password" formControlName="password">
           </div>
           <div class="text-center">
-            <input type="submit" class="btn btn-my" value="Sign Up">
+            <input type="submit" class="btn btn-success mt-3" value="Sign Up">
           </div>
           <div class="text-center login">
-            Already have an account ? <a routerLink="/login">Login</a> hera.
+            Already have an account ? <a routerLink="/login">Login</a> here.
           </div>
-
         </form>
       </div>
     </div>

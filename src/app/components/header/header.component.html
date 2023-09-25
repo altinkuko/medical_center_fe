@@ -20,8 +20,11 @@
 
     <!-- Search form -->
     <form class="d-flex input-group w-auto">
-      <button class="btn btn-outline-primary" type="button" (click)="goLogin()">
+      <button *ngIf="!isLoggedIn()" class="btn btn-outline-primary" type="button" (click)="goLogin()">
         Login
+      </button>
+      <button *ngIf="isLoggedIn()" class="btn btn-outline-primary" type="button" (click)="logout()">
+        Logout
       </button>
     </form>
   </div>
