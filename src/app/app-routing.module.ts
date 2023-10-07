@@ -6,12 +6,14 @@ import {DoctorCreateComponent} from "./components/doctor-create/doctor-create.co
 import {LoginComponent} from "./components/login/login.component";
 import {HomeComponent} from "./components/home/home.component";
 import {RegisterComponent} from "./components/register/register.component";
+import {authGuard} from "./services/auth-guard.guard";
+import {LoggGuardGuard} from "./services/logg-guard.guard";
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
-  {path:'doctors', component:DoctorsComponent},
+  {path:'doctors', component:DoctorsComponent, canActivate:[LoggGuardGuard]},
   {path:'doctor/details/:id', component:DoctorDetailsComponent},
-  {path:'doctor/create', component:DoctorCreateComponent},
+  {path:'doctor/create', component:DoctorCreateComponent, canActivate:[authGuard]},
   {path:'login', component: LoginComponent},
   {path:'register', component:RegisterComponent}
 ];

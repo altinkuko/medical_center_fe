@@ -11,4 +11,8 @@ export class LoginService {
   doLogin(username:string, password:string){
     return this.http.post(this.BASEURL + '/login', {username, password});
   }
+
+  isLoggedIn(){
+    return this.http.get(this.BASEURL + '/isLoggedIn');
+  }
 }
